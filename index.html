@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rettspace - Retna Kirani Darmawan</title>
+    
+    <!-- Tailwind CSS (Framework CSS untuk styling cepat dan modern) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome (Untuk Ikon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts (Poppins & Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Konfigurasi Tema Kustom -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6', // Ungu Lembut
+                        secondary: '#EC4899', // Pink
+                        dark: '#0f172a', // Biru gelap untuk background
+                        light: '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* CSS Tambahan untuk Animasi dan Detail */
+        body {
+            background-color: #0f172a; /* Slate 900 */
+            color: #f1f5f9; /* Slate 100 */
+        }
+        
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-bar-fill {
+            transition: width 1.5s ease-in-out;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #8B5CF6, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hover effect untuk kartu */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.15);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 1. HEADER -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Nama / Logo -->
+            <div class="flex flex-col">
+                <a href="#home" class="text-2xl font-bold font-heading text-white tracking-wide">
+                    RETNA<span class="text-primary">.</span>
+                </a>
+                <!-- Tagline (Desktop only) -->
+                <span class="text-xs text-gray-400 italic hidden md:block">"expand your heart, then spread your good love"</span>
+            </div>
+
+            <!-- Menu Navigasi Desktop -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="hover:text-primary transition-colors font-medium">Home</a>
+                <a href="#about" class="hover:text-primary transition-colors font-medium">About</a>
+                <a href="#skills" class="hover:text-primary transition-colors font-medium">Skills</a>
+                <a href="#portfolio" class="hover:text-primary transition-colors font-medium">Portofolio</a>
+                <a href="#contact" class="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold hover:opacity-90 transition-opacity shadow-lg">
+                    Contact
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 absolute w-full border-t border-slate-700">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <span class="text-xs text-center text-gray-400 italic mb-2">"expand your heart, then spread your good love"</span>
+                <a href="#home" class="block hover:text-primary">Home</a>
+                <a href="#about" class="block hover:text-primary">About</a>
+                <a href="#skills" class="block hover:text-primary">Skills</a>
+                <a href="#portfolio" class="block hover:text-primary">Portofolio</a>
+                <a href="#contact" class="block text-primary font-bold">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. BERANDA (HOME) -->
+    <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-20 right-0 w-72 h-72 bg-primary opacity-10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-0 w-96 h-96 bg-secondary opacity-10 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <!-- Text Content -->
+            <div class="text-center md:text-left order-2 md:order-1 animate-fade-in-up">
+                <p class="text-primary font-semibold tracking-widest mb-2 uppercase">Rettspace — selamat datang</p>
+                <h1 class="text-4xl md:text-6xl font-bold font-heading mb-4 leading-tight">
+                    Hi, Saya <br> <span class="gradient-text">Retna Kirani Darmawan</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-6 font-light">
+                    Keahlian Utama: <span class="font-bold text-white">Mendesain Poster</span>
+                </p>
+                <p class="text-gray-400 mb-8 max-w-lg mx-auto md:mx-0">
+                    Seorang pelajar kreatif yang mencintai dunia teknik elektro dan desain. Mari menjelajahi karya dan perjalanan saya.
+                </p>
+                <a href="#portfolio" class="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1 transition-all">
+                    Lihat Portofolio <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <!-- Image Content -->
+            <div class="order-1 md:order-2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-full animate-pulse opacity-20"></div>
+                    <!-- Placeholder Image (Silakan ganti src dengan foto asli Retna) -->
+                    <img src="https://raw.githubusercontent.com/retnakirani/Portopolio/refs/heads/main/WhatsApp%20Image%202026-02-05%20at%2008.42.35.jpeg" 
+                         alt="Foto Retna Kirani" 
+                         class="relative w-full h-full object-cover rounded-full border-4 border-slate-800 shadow-2xl">
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute bottom-4 right-4 bg-slate-800 p-3 rounded-xl shadow-lg border border-slate-700 flex items-center gap-2">
+                        <div class="w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
+                        <span class="text-xs font-bold text-white">Open for Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. TENTANG SAYA (ABOUT ME) -->
+    <section id="about" class="py-20 bg-slate-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Tentang <span class="text-primary">Saya</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <!-- Kolom Kiri: Personal Details -->
+                <div class="bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-700">
+                    <h3 class="text-2xl font-bold mb-6 text-white flex items-center gap-2">
+                        <i class="fas fa-user-circle text-secondary"></i> Profil Singkat
+                    </h3>
+                    <div class="space-y-4 text-gray-300 leading-relaxed text-justify">
+                        <p>
+                            Halo, perkenalkan nama saya <strong>Retna</strong>. Saya adalah seorang pelajar yang lahir di kota Tasikmalaya pada tanggal 25 Maret 2008.
+                        </p>
+                        <p>
+                            Sejak duduk di bangku SMA, saya memiliki ketertarikan mendalam terhadap <strong>teknik, terutama teknik elektro</strong>. Bagi saya, kelistrikan memiliki peran vital bagi kehidupan masa kini dan masa depan.
+                        </p>
+                        <div class="mt-6 p-4 bg-slate-700/50 rounded-lg border-l-4 border-primary">
+                            <h4 class="font-bold text-white mb-1">Nilai Pribadi</h4>
+                            <p class="text-sm italic">"Saya memiliki keunggulan pribadi yaitu bertanggung jawab atas apa yang saya pilih."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Interest & Education -->
+                <div class="space-y-6">
+                    <!-- Minat & Tujuan -->
+                    <div class="bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-700 card-hover">
+                        <h4 class="text-xl font-bold text-white mb-3 text-secondary">Minat & Tujuan</h4>
+                        <p class="text-gray-400 text-sm mb-2">
+                            Minat saya didorong oleh ketertarikan terhadap sistem kelistrikan dan elektronika.
+                        </p>
+                        <p class="text-gray-400 text-sm">
+                            <strong>Tujuan:</strong> Menguasai pengetahuan dan keterampilan di bidang kelistrikan agar mampu bekerja secara profesional dan berkontribusi dalam pengembangan teknologi.
+                        </p>
+                    </div>
+
+                    <!-- Riwayat Pendidikan -->
+                    <div class="bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-700 card-hover">
+                        <h4 class="text-xl font-bold text-white mb-4 text-primary">Pendidikan & Pengalaman</h4>
+                        <ul class="space-y-4 border-l-2 border-slate-600 ml-2 pl-4">
+                            <li class="relative">
+                                <div class="absolute -left-[21px] top-1 w-3 h-3 bg-primary rounded-full"></div>
+                                <h5 class="text-white font-bold">SMAN 1 Subang</h5>
+                                <p class="text-xs text-gray-400">Saat ini (SMA)</p>
+                                <p class="text-sm text-gray-300 mt-1">Mengikuti ekstrakurikuler Smansa English Club.</p>
+                            </li>
+                            <li class="relative">
+                                <div class="absolute -left-[21px] top-1 w-3 h-3 bg-secondary rounded-full"></div>
+                                <h5 class="text-white font-bold">SMPN 2 Subang</h5>
+                                <p class="text-xs text-gray-400">Pendidikan Menengah Pertama</p>
+                                <p class="text-sm text-gray-300 mt-1">Bendahara 2 OSIS.</p>
+                            </li>
+                            <li class="relative">
+                                <div class="absolute -left-[21px] top-1 w-3 h-3 bg-gray-500 rounded-full"></div>
+                                <h5 class="text-white font-bold">SDN H Samanhudi</h5>
+                                <p class="text-xs text-gray-400">Pendidikan Dasar</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. KEAHLIAN (SKILLS) - PROGRESS BARS -->
+    <section id="skills" class="py-20 bg-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Keahlian <span class="text-secondary">Saya</span></h2>
+                <p class="text-gray-400">Kemampuan Hard Skills dan Soft Skills yang terus saya kembangkan.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <!-- Hard Skills -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fas fa-laptop-code text-primary"></i> Hard Skills
+                    </h3>
+                    <div class="space-y-6">
+                        <!-- Item 1 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-300">Desain Poster</span>
+                                <span class="text-sm font-medium text-primary">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full skill-bar-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-300">Analisis Data</span>
+                                <span class="text-sm font-medium text-primary">75%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full skill-bar-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-300">Public Speaking</span>
+                                <span class="text-sm font-medium text-primary">80%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full skill-bar-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fas fa-users text-secondary"></i> Soft Skills
+                    </h3>
+                    <div class="space-y-6">
+                        <!-- Item 1 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-300">Kerja Sama Tim</span>
+                                <span class="text-sm font-medium text-secondary">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                <div class="bg-secondary h-2.5 rounded-full skill-bar-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-300">Komunikasi</span>
+                                <span class="text-sm font-medium text-secondary">85%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                <div class="bg-secondary h-2.5 rounded-full skill-bar-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-300">Manajemen Waktu</span>
+                                <span class="text-sm font-medium text-secondary">80%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                <div class="bg-secondary h-2.5 rounded-full skill-bar-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PORTOFOLIO & 6. PRESTASI -->
+    <section id="portfolio" class="py-20 bg-slate-800/30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Portofolio & <span class="text-primary">Prestasi</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Grid Layout -->
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Project Card: Diriku (Span 2 cols) -->
+                <div class="md:col-span-2 bg-slate-800 rounded-2xl overflow-hidden shadow-xl border border-slate-700 card-hover group">
+                    <div class="relative h-64 overflow-hidden">
+                        <!-- Gambar Proyek Placeholder -->
+                        <div class="absolute inset-0 bg-slate-700 flex items-center justify-center text-gray-500 group-hover:scale-110 transition-transform duration-500">
+                            <i class="fas fa-image text-4xl"></i>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project Diriku" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-0 left-0 bg-gradient-to-t from-slate-900 to-transparent p-6 w-full">
+                            <h3 class="text-2xl font-bold text-white">Proyek: Diriku</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                            Sebuah refleksi profil diri, minat, dan tujuan hidup. <br>
+                            <em>"Saya dapat mempertanggung jawabkan seluruh keputusan yang saya ambil tanpa keraguan."</em>
+                        </p>
+                        <p class="text-gray-400 text-xs">Kategori: Personal Branding</p>
+                    </div>
+                </div>
+
+                <!-- Achievement Card -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 shadow-xl card-hover flex flex-col justify-center items-center text-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <i class="fas fa-trophy text-9xl text-yellow-500"></i>
+                    </div>
+                    <div class="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-medal text-2xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Prestasi Akademik</h3>
+                    <p class="text-3xl font-bold text-primary mb-2">Juara 2</p>
+                    <p class="text-gray-300 font-medium">Olimpiade PAI Tingkat Kabupaten</p>
+                    <p class="text-sm text-gray-500 mt-2">(Kelas 4 SD)</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. KONTAK (CONTACT) -->
+    <section id="contact" class="py-20 bg-slate-900">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="bg-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-700 relative overflow-hidden">
+                <!-- Background Accent -->
+                <div class="absolute -top-24 -right-24 w-48 h-48 bg-secondary opacity-20 rounded-full blur-3xl"></div>
+                
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold font-heading mb-4 text-white">Hubungi <span class="text-primary">Saya</span></h2>
+                    <p class="text-gray-400">Tertarik berkolaborasi atau ingin menyapa? Silakan hubungi saya.</p>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 justify-center items-center">
+                    
+                    <!-- Contact Item: Email -->
+                    <a href="mailto:kiraniretna81@gmail.com" class="flex items-center gap-4 bg-slate-700/50 px-6 py-4 rounded-xl hover:bg-slate-700 transition-colors w-full md:w-auto">
+                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">Email</p>
+                            <p class="text-sm md:text-base font-medium text-white break-all">kiraniretna81@gmail.com</p>
+                        </div>
+                    </a>
+
+                    <!-- Contact Item: Instagram -->
+                    <a href="https://instagram.com/retnakrnd______" target="_blank" class="flex items-center gap-4 bg-slate-700/50 px-6 py-4 rounded-xl hover:bg-slate-700 transition-colors w-full md:w-auto">
+                        <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center text-secondary">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">Instagram</p>
+                            <p class="text-sm md:text-base font-medium text-white">@retnakrnd______</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER -->
+    <footer class="bg-slate-950 py-8 border-t border-slate-800">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-envelope text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">
+                &copy; Rett-2026. Hak Cipta Dilindungi. <br>
+                <span class="text-xs opacity-50">Dibuat untuk Tugas PKWU XII-4</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Interaksi -->
+    <script>
+        // Toggle Mobile Menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar Change on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
